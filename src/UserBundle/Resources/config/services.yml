@@ -1,0 +1,4 @@
+services:
+  user.services.user_service:
+      class: IQDate\UserBundle\Services\UserService
+      arguments: ['@doctrine.dbal.master_connection']

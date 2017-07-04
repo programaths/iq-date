@@ -1,9 +1,9 @@
 <?php
 
-namespace IQDate\AppBundle;
+namespace IQDate\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class UserBundle extends Bundle
 {
 }
