@@ -6,6 +6,8 @@ security:
     providers:
         in_memory:
             memory: ~
+         iq:
+            id: iqdate_user.security_user.user_provider
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs

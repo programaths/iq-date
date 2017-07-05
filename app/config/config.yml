@@ -49,6 +49,9 @@ doctrine:
           password: '%db_master_password%'
           charset: UTF8
       default_connection: master
+    orm:
+      auto_mapping: true
+
 
 
 # Swiftmailer Configuration

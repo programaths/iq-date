@@ -1,4 +1,12 @@
 services:
   user.services.user_service:
       class: IQDate\UserBundle\Services\UserService
-      arguments: ['@doctrine.dbal.master_connection']
+      arguments: [ "@iqdate.user" ]
+  iqdate.user:
+          class: IQDate\UserBundle\Repository\IQUserRepositoryInterface
+          factory: ["@doctrine.orm.entity_manager", getRepository]
+          arguments:
+              - UserBundle:IQUser
+  iqdate_user.security_user.user_provider:
+      class: IQDate\UserBundle\Security\User\UserProvider
+      arguments: ['@iqdate.user']

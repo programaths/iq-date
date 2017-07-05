@@ -3,7 +3,9 @@
 namespace IQDate\UserBundle\Services;
 
 use Doctrine\DBAL\Driver\Connection;
-use IQDate\UserBundle\Models\User;
+use IQDate\UserBundle\Entity\IQUser;
+use IQDate\UserBundle\Repository\IQUserRepository;
+use IQDate\UserBundle\Repository\IQUserRepositoryInterface;
 
 /**
  * Created by PhpStorm.
@@ -14,16 +16,16 @@ use IQDate\UserBundle\Models\User;
 class UserService
 {
     /**
-     * @var Connection
+     * @var IQUserRepositoryInterface
      */
-    private $connection;
+    private $repository;
 
-    public function __construct(Connection $connection)
+    public function __construct(IQUserRepositoryInterface $repository)
     {
-        $this->connection = $connection;
+        $this->repository = $repository;
     }
 
     public function findUser(){
-        return new User();
+        return new IQUser();
     }
 }

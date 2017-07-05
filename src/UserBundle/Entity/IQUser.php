@@ -1,6 +1,8 @@
 <?php
 
-namespace IQDate\UserBundle\Models;
+namespace IQDate\UserBundle\Entity;
+
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Created by PhpStorm.
@@ -8,12 +10,13 @@ namespace IQDate\UserBundle\Models;
  * Date: 4/07/17
  * Time: 20:06
  */
-class User implements \Symfony\Component\Security\Core\User\UserInterface
+class IQUser implements UserInterface
 {
-
+    private $id;
     private $name;
     private $surname;
     private $nickname;
+    private $password;
 
     /**
      * Returns the roles granted to the user.
@@ -33,7 +36,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     /**
@@ -46,7 +49,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
     /**
@@ -58,7 +61,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     /**
@@ -68,7 +71,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     public function getUsername()
     {
-        return $this->surname;
+        return $this->nickname;
     }
 
     /**
@@ -79,6 +82,6 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->password=null;
     }
 }
